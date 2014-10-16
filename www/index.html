@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/ionic.app.css" rel="stylesheet">
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+    <script src="cordova.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/main_controller.js"></script>
+  </head>
+  <body ng-app="lc-timer">
+    <ion-pane>
+      <ion-header-bar class="bar-calm">
+        <h1 class="title">TMR</h1>
+      </ion-header-bar>
+      <ion-content ng-controller="MainCtrl">
+        <h3 id="display">{{minutes}}:{{seconds}}</h3>
+        <div class="minutes">
+          <div class="title">MIN</div>
+          <div class="list">
+            <div class="item range range-positive"><i class="icon ion-stop"></i>
+              <input ng-model="minutes" type="range" name="minutes" min="0" max="60" value="0"><i class="ion-ios7-fastforward"></i>
+            </div>
+          </div>
+        </div>
+        <div class="seconds">
+          <div class="title">SEC</div>
+          <div class="button-bar"><a ng-click="addSecs(0)" class="button">:00</a><a ng-click="addSecs(5)" class="button">:05</a><a ng-click="addSecs(10)" class="button">:10</a><a ng-click="addSecs(15)" class="button">:15</a></div>
+          <div class="button-bar"><a ng-click="addSecs(20)" class="button">:20</a><a ng-click="addSecs(25)" class="button">:25</a><a ng-click="addSecs(30)" class="button">:30</a><a ng-click="addSecs(35)" class="button">:35</a></div>
+          <div class="button-bar"><a ng-click="addSecs(40)" class="button">:40</a><a ng-click="addSecs(45)" class="button">:45</a><a ng-click="addSecs(50)" class="button">:50</a><a ng-click="addSecs(55)" class="button">:55</a></div>
+        </div>
+        <div ng-click="startTimer()" class="button button-block button-balanced">START</div>
+        <div ng-click="endTimer()" class="button button-block button-assertive">RESET</div>
+      </ion-content>
+    </ion-pane>
+  </body>
+</html>
